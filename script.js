@@ -65,7 +65,9 @@ $('#mfile').change(function (){
 });
 var tab = {
 	create: function(name, content, mode){
-		$("div.filestab").append("<div class='file' onclick='tabsclick(this)'>"+name+"<span onclick='tab.close(this)' class='file close'>&#x2716;</span></div>");
+		var color = eval("lancolor." + mode.toLowerCase() + ".color");
+		
+		$("div.filestab").append("<div class='file' style='border-color:" + color + ";' onclick='tabsclick(this)'>"+name+"<span onclick='tab.close(this)' class='file close'>&#x2716;</span></div>");
 		localStorage.setItem("fileContent_" + name.toLowerCase, content);
 		localStorage.setItem("currentTab", name);
 		editor.getSession().setMode("ace/mode/" + mode.toLowerCase());
@@ -142,7 +144,7 @@ $(".chip").click(function(){
 		window.open(href)
 	}
 })
-tab.create("New", "", "txt")
+//tab.create("New", "", "txt")
 $("floating_action saveas").click(function(){
 	
 })
