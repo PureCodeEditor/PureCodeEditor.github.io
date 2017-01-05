@@ -10,21 +10,21 @@ String.prototype.toProperCase = function() {return this.charAt(0).toUpperCase() 
 		########################	########################
 		########################	########################
 		########################	########################
-		######			 #######	######            ######
+		######		 #######	######            ######
 		######           #######	######            ######
 		######           #######	######
 		########################	######
 		########################	######
 		########################	######
-		######						######
-		######						######
-		######						######
-		######						######            ######
-		######						######            ######
-		######						########################
-		######						########################
-		######						########################
-		######						########################
+		######				######
+		######				######
+		######				######
+		######				######            ######
+		######				######            ######
+		######				########################
+		######				########################
+		######				########################
+		######				########################
 */
 
 var loop = setInterval(function(){
@@ -102,6 +102,7 @@ var tab = {
 		$("select.language_select").val(type.toLowerCase());
 	}
 }
+tab.create("New", "", "txt");
 editor.on('change', function(){
 	tab.update(editor.getValue());
 })
@@ -111,25 +112,6 @@ function tabsclick(p){
 	var dm = p.html().split("<span")[0]
 	tab.switchTo(dm)
 }
-$(document).click(function(e){
-	var target = e.target;
-    if (!$(target).is('div.floating_dialog') && !$(target).parents().is('div.floating_dialog') && !$(target).is('.floating_action.settings')) {
-        $('div.floating_dialog').fadeOut(100);
-    }
-});
-
-var checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {},
-$checkboxes = $(":checkbox, :radio");
-
-$checkboxes.on("change", function(){
-	$checkboxes.each(function(){
-		checkboxValues[this.id] = this.checked;
-	});
-	localStorage.setItem("checkboxValues", JSON.stringify(checkboxValues));
-});
-$.each(checkboxValues, function(key, value) {
-  $("#" + key).prop('checked', value);
-});
 $(".floating_action.restore").click(function(){
 	var dt = window.prompt("Enter a file name to restore (e.g. index.html)");
 	$(".mk-spinner-ripple").fadeIn(100).delay(5000).fadeOut(100,function(){
@@ -138,13 +120,3 @@ $(".floating_action.restore").click(function(){
 		}
 	});
 });
-$(".chip").click(function(){
-	var href = $(this).attr("href");
-	if(href){
-		window.open(href)
-	}
-})
-//tab.create("New", "", "txt")
-$("floating_action saveas").click(function(){
-	
-})
