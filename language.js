@@ -136,10 +136,6 @@ var lancolor = {
         "color": "#00b4ab", 
         "url": "https://github.com/trending?l=dart"
     }, 
-    "eclipse": {
-        "color": null, 
-        "url": "https://github.com/trending?l=eclipse"
-    }, 
 	"gcode": {
         "color": "", 
         "url": "https://github.com/trending?l=groovy server pages"
@@ -207,10 +203,6 @@ var lancolor = {
     "tex": {
         "color": "#3d6117", 
         "url": "https://github.com/trending?l=tex"
-    }, 
-    "thrift": {
-        "color": null, 
-        "url": "https://github.com/trending?l=thrift"
     }, 
     "vbscript": {
         "color": "#945db7", 
