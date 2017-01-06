@@ -14,6 +14,10 @@
 ::-webkit-scrollbar-corner {
     background-color:#045;
 }
+body {
+	overflow:hidden;
+	background-color:rgb(0,54,65);
+}
 #editor { 
 	position: fixed;
 	top: 72px;
@@ -203,4 +207,32 @@ div.lprev {
 	background-color:#AAA;
 	z-index:1000000000000000000000000000000000000000000000000000000000;
 	position:absolute;
+}
+div.cxt {
+	position:absolute;
+	width:282px;
+	height:452px;
+	background-color:#FFF;
+	z-index:1000000000000000000000000000000000000000000000000000000000;
+	display:none;
+}
+div.cxt > *:not(.title):not(.cancel):hover {
+	background-color:rgba(0,0,0,0.1);
+}
+div.cxt > * {
+	font-size:22px;
+	font-family:roboto;
+	padding:18px;
+	cursor:pointer;
+	text-transform:uppercase;
+	user-select:none;
+	color:#555;
+}
+div.cxt > .title {
+	color:#098;
+}
+div.cxt > .cancel {
+	color:#555;
+	background-color:rgba(0,0,0,0.1);
+	bottom:0px;
 }

@@ -159,3 +159,51 @@ $(".floating_action.github").click(function(){
 $(".floating_action.open").click(function(){
 	$("#mfile").click();
 });
+$(".floating_action.undo").click(function(){
+	document.execCommand("undo")
+});
+$(".floating_action.redo").click(function(){
+	document.execCommand("redo")
+});
+$(".floating_action.web").click(function(){
+	var dt = prompt("Enter a URL of a file to pull from the web.");
+	if(dt){
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var rt = this.responseText;
+				var tp = eval("language." + dt.split(".")[dt.split(".").length - 1].toLowerCase());
+				tab.create(dt.split("/")[6], rt, tp)
+			}
+		};
+		xmlhttp.open("GET", dt, true);
+		xmlhttp.send()
+	}
+});
+$(document).contextmenu(function(e){
+	e.preventDefault();
+	
+	var x = e.pageX
+	var y = e.pageY
+	
+	if(screen.width - 282 < e.pageX){
+		x = screen.width - 286;
+	}
+	if(screen.height - 452 < e.pageY){
+		y = screen.height - 600;
+	}
+	
+	$("div.cxt").css({
+		left: x,
+		top: y
+	}).show();
+}).click(function(e) {
+	if ($(e.target).closest('.cxt').length === 0 && $(e.target).parents().closest(".cxt").length === 0) {
+		$("div.cxt").hide();
+	}
+});
