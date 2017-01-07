@@ -72,9 +72,9 @@ $('#mfile').change(function (){
 var tab = {
 	create: function(name, content, mode){
 		var color = eval("lancolor." + mode.toLowerCase() + ".color");
-		
+		localStorage.setItem("fileContent_" + name.toLowerCase(), "");
 		$("div.filestab").append("<div class='file' style='border-color:" + color + ";' onclick='tabsclick(this)'>"+name+"<span onclick='tab.close(this)' class='file close'>&#x2716;</span></div>");
-		localStorage.setItem("fileContent_" + name.toLowerCase, content);
+		localStorage.setItem("fileContent_" + name.toLowerCase(), content);
 		localStorage.setItem("currentTab", name);
 		editor.getSession().setMode("ace/mode/" + mode.toLowerCase());
 		editor.setValue(content, 1);
@@ -122,11 +122,9 @@ function tabsclick(p){
 $(".floating_action.restore").click(function(){
 	var dt = window.prompt("Enter a file name to restore (e.g. index.html)");
 	if(dt){
-		load(2500, function(){
-			if(localStorage.getItem("fileContent_" + dt.toLowerCase())){
-				tab.create(dt, localStorage.getItem("fileContent_" + dt.toLowerCase()), eval("language." + dt.split(".")[dt.split(".").length-1]))
-			}
-		})
+		if(localStorage.getItem("fileContent_" + dt.toLowerCase())){
+			tab.create(dt, localStorage.getItem("fileContent_" + dt.toLowerCase()), eval("language." + dt.split(".")[dt.split(".").length-1]))
+		}
 	}
 });
 function load(t,cb){
@@ -178,18 +176,6 @@ $(".floating_action.new").click(function(){
 		}
 		tab.create(emdt, "", type)
 	}
-});
-$(".floating_action.zin").click(function(){
-	var fs = $("#editor").css("font-size") + 2;
-	$("#editor").css({
-		fontSize: fs
-	})
-});
-$(".floating_action.zout").click(function(){
-	var fs = $("#editor").css("font-size") - 2;
-	$("#editor").css({
-		fontSize: fs
-	})
 });
 $(".floating_action.download").click(function(){
 	var ct = localStorage.getItem("currentTab");
