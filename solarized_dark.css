@@ -78,8 +78,7 @@
     color: #2AA198
 }
 .ace-solarized-dark .ace_fold {
-    background-color: #268BD2;
-    border-color: #93A1A1
+	background-color:#098;
 }
 .ace-solarized-dark .ace_identifier {
 	color: rgb(181,137,0)
@@ -95,6 +94,9 @@
 }
 .ace-solarized-dark .ace_variable.ace_language {
     color: #268BD2
+}
+.ace-solarized-dark .ace_comment.ace_doc {
+    color: rgb(220,45,54);
 }
 .ace-solarized-dark .ace_string {
     color: #2AA198
