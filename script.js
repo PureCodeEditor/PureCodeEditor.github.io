@@ -34,6 +34,9 @@ var loop = setInterval(function(){
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/solarized_dark");
 editor.getSession().setMode("ace/mode/txt");
+editor.setOptions({
+	showIndentGuides: true
+})
 
 $("select.language_select").change(function(){
 	editor.getSession().setMode("ace/mode/" + $(this).val().toLowerCase());
