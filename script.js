@@ -168,3 +168,30 @@ $(".floating_action.undo").click(function(){
 $(".floating_action.redo").click(function(){
 	document.execCommand("redo")
 });
+$(".floating_action.new").click(function(){
+	var emdt = prompt("Create New File");
+	if(emdt){
+		var ty = emdt.split(".")[emdt.split(".").length - 1]
+		type = eval("language." + ty);
+		if(typeof type == "undefined"){
+			type = "txt"
+		}
+		tab.create(emdt, "", type)
+	}
+});
+$(".floating_action.zin").click(function(){
+	var fs = $("#editor").css("font-size") + 2;
+	$("#editor").css({
+		fontSize: fs
+	})
+});
+$(".floating_action.zout").click(function(){
+	var fs = $("#editor").css("font-size") - 2;
+	$("#editor").css({
+		fontSize: fs
+	})
+});
+$(".floating_action.download").click(function(){
+	var ct = localStorage.getItem("currentTab");
+	download(editor.getValue(), ct);
+});

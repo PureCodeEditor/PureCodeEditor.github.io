@@ -18,7 +18,11 @@ var language = {
     "cs": "C#",
     "litcoffee": "CoffeeScript",
     "css": "CSS",
+	"d": "D",
     "gcode": "GCode",
+	"w3": "GCode",
+	"stl": "GCode",
+	"3mf": "GCode",
     "gitignore": "Gitignore",
     "hs": "Haskell",
     "lhs": "Haskell",
@@ -67,6 +71,7 @@ var language = {
     "sql": "SQL",
     "tcl": "TCL",
     "tex": "TEX",
+	"txt": "txt",
     "vb": "VBScript",
     "vbs": "VBScript",
     "xml": "XML",
@@ -137,7 +142,7 @@ var lancolor = {
         "url": "https://github.com/trending?l=dart"
     }, 
 	"gcode": {
-        "color": "", 
+        "color": "4568d2", 
         "url": "https://github.com/trending?l=groovy server pages"
     }, 
     "haskell": {
@@ -195,7 +200,10 @@ var lancolor = {
     "sql": {
         "color": "#fbbc05", 
         "url": "https://github.com/trending?l=sqlpl"
-    },  
+    },
+	"txt": {
+		"color": "#AAAAAA"
+	},
     "tcl": {
         "color": "#e4cc98", 
         "url": "https://github.com/trending?l=tcl"

@@ -89,7 +89,7 @@ div.file {
 	padding-bottom:6px;
 	background-color: rgba(0,0,0,0.1);
 	user-select:none;
-	border-top:6px solid #c1c1c1;
+	border-top:2px solid #c1c1c1;
 	cursor:pointer;
 }
 div.file:hover {
@@ -223,4 +223,7 @@ a:link {
 a:visited {
 	text-decoration:none;
 	color:#0CD;
+}
+#mimg {
+	z-index:10000000000000000000000000000000000000000000000000000000000000;
 }
