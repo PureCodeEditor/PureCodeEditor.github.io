@@ -30,7 +30,7 @@ var loop = setInterval(function(){
 	
 },20)
 
-if(!localStorage.getItem("pc-theme")) localStorage.setItem("pc-theme", "purecode");
+if(!localStorage.getItem("pc-theme")) localStorage.setItem("pc-theme", "ace");
 setTheme(localStorage.getItem("pc-theme"))
 
 var editor = ace.edit("editor");
