@@ -7,7 +7,5 @@ The easiest way we came up with was was using the iframe and a URL.
 <iframe src="https://purecodeeditor.github.io/embed"></iframe>
 ```
 {::nomarkdown}
-
-<iframe src="https://purecodeeditor.github.io/embed?javascript" width="500" height="300"></iframe>
-
+<link src="https://purecodeeditor.github.io/embed?javascript" width="500" height="300"></link>
 {:/}
