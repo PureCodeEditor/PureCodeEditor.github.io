@@ -26,15 +26,12 @@ String.prototype.toProperCase = function() {return this.charAt(0).toUpperCase() 
 		######						########################
 		######						########################
 */
-
 var loop = setInterval(function(){
 	
 },20)
-setTheme("solarized_dark")
-function setTheme(theme){
-	$("#pc-theme").remove();
-	$("head").append('<link rel="stylesheet" id="pc-theme" href="theme/' + theme + '.css"/>')
-}
+
+if(!localStorage.getItem("pc-theme")) localStorage.setItem("pc-theme", "purecode");
+setTheme(localStorage.getItem("pc-theme"))
 
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/purecode");
@@ -61,15 +58,11 @@ $('#mfile').change(function (){
 	var files = this.files;
 	var file;
 	var reader;
-	
 	for (var i = 0; i < files.length; i++) {
 		file = files.item(i);
-		
 		var type = eval("language." + file.name.split(".")[file.name.split(".").length - 1]);
-		
 		reader = null;
 		reader = new FileReader();
-	
 		reader.onload = function(){
 			content = reader.result;
 			tab.create(file.name, content, type);
@@ -119,14 +112,24 @@ var tab = {
 editor.on('change', function(){
 	tab.update(editor.getValue());
 })
-
-
-
+function setTheme(theme){
+	$("#pc-theme").remove();
+	localStorage.setItem("pc-theme", theme)
+	$("head").append('<link rel="stylesheet" id="pc-theme" href="theme/' + theme + '.css"/>')
+}
 function tabsclick(p){
 	var p = $(p);
 	var dm = p.html().split("<span")[0]
 	tab.switchTo(dm)
 }
+
+
+
+
+
+
+
+
 $(".floating_action.restore").click(function(){
 	var dt = window.prompt("Enter a file name to restore (e.g. index.html)");
 	if(dt){
@@ -196,6 +199,30 @@ $(".floating_action.download").click(function(){
 	$(this).effect("shake", { direction: "up", times: 4, distance: 10}, 500 )
 });
 
+$(".floating_action.theme").click(function(){
+	$("div.banner.left").animate({
+		left: "0px"
+	}, 250)
+})
+$("div.banner.left").mouseleave(function(){
+	$("div.banner.left").animate({
+		left: "-250px"
+	}, 250)
+})
+$("h4.themesel").click(function(){
+	var theme = $(this).text().toLowerCase().replace(" ", "_")
+	setTheme(theme);
+})
+
+
+
+
+
+
+
+
+
+
 $(":checkbox").on("change", function() {
 	$(':checkbox').not(this).prop('checked', this.checked);
 });
@@ -205,7 +232,7 @@ $(":checkbox").on("change", function() {
 		$(":checkbox").each(function(){
 		checkboxValues[this.id] = this.checked;
 	});
-	$.cookie('checkboxValues', checkboxValues, { expires: 7, path: '/' })
+	$.cookie('checkboxValues', checkboxValues, { expires: 9999, path: '/' })
 });
 
 function repopulateCheckboxes(){

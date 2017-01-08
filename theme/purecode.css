@@ -1,0 +1,40 @@
+:root{
+	--default:#000;
+	--arg:#FA0;
+	--normal:#000;
+	--keyword:#008;
+	--string:#0AA;
+	--function:#600;
+	--comment:#0A0;
+	
+	--background_1:#FFF;
+	--background_2:#DDD;
+	--background_3:#CCC;
+	--fold:#888;
+	
+	--loader:#0AA;
+	--dom:#EEE;
+	--doc:#000;
+	--banner:#EEE;
+	--ftab:#EEE;
+}
+.purecode .ace_storage {
+	font-style:italic;
+	font-weight:800;
+}
+.purecode .ace_comment.ace_doc {
+	color:var(--string);
+}
+.purecode .ace_constant.ace_numeric {
+	color:#F00;
+	font-weight:900;
+}
+.purecode .ace_text {
+	color:#000;
+}
+.purecode .ace_meta.ace_tag {
+	font-weight:900;
+}
+.purecode .ace_selection {
+	background-color:#F00;
+}
