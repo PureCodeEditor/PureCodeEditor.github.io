@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"/>
 		<link rel="stylesheet" href="style.css"/>
-		<link rel="stylesheet" href="solarized_dark.css"/>
+		<link rel="stylesheet" href="theme/.pc-configure.css"/>
 		<link rel="shortcut icon" href="img/trans-icon.png"/>
-		<title>PureCode Editor</title>
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,??100italic,300,300ita??lic,400italic,500,50??0italic,700,700itali??c,900italic,900' rel='stylesheet' type='text/css'>
+		<title>PureCode Editor</title>
 	</head>
 	<body>
 		<img src="" id="mimg"/>
-		<input type="file" multiple id="mfile"></input>
+		<input type="file" multiple id="mfile"/>
 		<div class="banner top">
 			<select class="language_select"><option disabled selected>Syntax</option><option value="txt">Text</option><option disabled>A</option><option value="actionscript">ActionScript</option><option value="ada">ADA</option><option value="apache_conf">Apache Conf</option><option value="asciidoc">AsciiDoc</option><option value="assembly_x86">Assembly x86</option><option disabled>B</option><option value="batchfile">BatchFile</option><option disabled>C</option><option value="c_cpp">C and C++</option><option value="coffee">CoffeeScript</option><option value="csharp">C#</option><option value="css">CSS</option><option disabled>D</option><option value="d">D</option><option value="diff">Diff</option><option disabled>F</option><option value="fortran">Fortran</option><option disabled>G</option><option value="gcode">Gcode</option><option value="gitignore">Gitignore</option><option disabled>H</option><option value="haskell">Haskell</option><option value="html">HTML</option><option disabled>I</option><option value="ini">INI</option><option value="io">Io</option><option disabled>J</option><option value="java">Java</option><option value="javascript">JavaScript</option><option value="json">JSON</option><option value="jsp">JSP</option><option disabled>L</option><option value="lisp">Lisp</option><option value="lua">Lua</option><option disabled>M</option><option value="makefile">Makefile</option><option value="markdown">Markdown</option><option value="mysql">MySQL</option><option disabled>N</option><option value="nsis">NSIS</option><option disabled>O</option><option value="objectivec">Objective-C</option><option disabled>P</option><option value="pascal">Pascal</option><option value="perl">Perl</option><option value="pgsql">pgSQL</option><option value="php">PHP</option><option value="powershell">Powershell</option><option value="properties">Properties</option><option value="python">Python</option><option disabled>R</option><option value="r">R</option><option value="ruby">Ruby</option><option disabled>S</option><option value="sass">SASS</option><option value="scheme">Scheme</option><option value="sql">SQL</option><option value="sqlserver">SQLServer</option><option value="svg">SVG</option><option disabled>T</option><option value="tcl">Tcl</option><option value="tex">Tex</option><option disabled>V</option><option value="vbscript">VBScript</option><option value="verilog">Verilog</option><option value="vhdl">VHDL</option><option disabled>X</option><option value="xml">XML</option><option disabled>Y</option><option value="yaml">YAML</option></select>
 			<div class="pc-top-bar">
+				<img class="floating_action settings" src="img/settings.png"/>
+			
 				<img class="floating_action new" src="img/new.png"/>
 				<img class="floating_action open" src="img/open.png"/>
 				<img class="floating_action download" src="img/download.png"/>
@@ -28,12 +31,13 @@
 		<script src="ace/ace.js"></script>
 		<div class="mk-spinner-ripple"></div>
 		<div class="banner bottom"></div>
+		
+		<script>
+        </script>
+        <script src="script.js"></script>
+        <script src="jquery.js"></script>
+        <script src="alertify.js"></script>
+        <script src="language.js"></script>
+        <script src="http://danml.com/js/download2.js"></script>
 	</body>
 </html>
-<script>
-</script>
-<script src="script.js"></script>
-<script src="jquery.js"></script>
-<script src="alertify.js"></script>
-<script src="language.js"></script>
-<script src="http://danml.com/js/download2.js"></script>

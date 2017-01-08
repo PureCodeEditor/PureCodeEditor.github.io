@@ -1,22 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
 * {
-	outline:none;
-}
-::-webkit-scrollbar {
-    width: 18px;
-}
-::-webkit-scrollbar-track {
-    background-color:#045;
-}
-::-webkit-scrollbar-thumb {
-	background-color:#056;
-}
-::-webkit-scrollbar-corner {
-    background-color:#045;
+	user-select:none;
+    outline:none;
 }
 body {
 	overflow:hidden;
-	background-color:#056;
+	background-color:#FFF;
 }
 #editor { 
 	position: fixed;
@@ -31,7 +19,7 @@ div.banner.bottom {
 	bottom:0px;
 	height:24px;
 	width:100%;
-	left:0;background-color:#045;
+	left:0;
 	position:absolute;
 }
 div.banner.top {
@@ -40,7 +28,6 @@ div.banner.top {
 	width:100%;
 	height:72px;
 	position:fixed;
-	background-color:#045;
 	z-index:10;
 }
 div.banner.top.filestab {
@@ -49,9 +36,7 @@ div.banner.top.filestab {
 	width:100%;
 	height:40%;
 	position:absolute;
-	background-color:#067;
 	display:inline-block;
-	
 	overflow:hidden;
 }
 select {
@@ -62,7 +47,6 @@ select {
 	height:100%;
 	position:static;
 	vertical-align:middle;
-	color:#FFF;
 }
 option {
 	color:#000;
@@ -80,7 +64,6 @@ option {
 div.file {
 	display:inline-table;
 	flex:none;
-	color:#FFF;
 	opacity:0.75;
 	font-family:roboto;
 	font-size:18px;
@@ -109,8 +92,9 @@ img.floating_action {
 }
 div.pc-top-bar {
 	position:absolute;
-	left:10%;
+	left:168px;
 	height:100%;
+	width:calc(100% - 168px);
 }
 @-webkit-keyframes rotate {
     from {
@@ -127,18 +111,15 @@ div.pc-top-bar {
     -webkit-animation-iteration-count: infinite;
     -webkit-animation-timing-function: linear;
 }
-.pc-setting-option {
-	background-color:#0cd;
-}
 
 select option:disabled {
     color: #AAA;
-    font-weight: bold;
 }
 .language_select {
 	bottom: +4px;
 	position:absolute;
 	border:none;
+	width:152px;
 } 
 div.floating_dialog {
 	position:absolute;
@@ -165,7 +146,6 @@ div.btns {
 	position:fixed;
 	width:256px;
 	height:256px;
-	background-color:#089;
 	opacity:0.75;
 	border-radius:50%;
 	left: calc(50% - 128px);
@@ -226,4 +206,8 @@ a:visited {
 }
 #mimg {
 	z-index:10000000000000000000000000000000000000000000000000000000000000;
+}
+.floating_action.settings {
+	position:absolute;
+	right:2px;
 }

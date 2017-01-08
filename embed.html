@@ -15,12 +15,12 @@
 	<body>
 		<span id="editor"></span>
 		<script src="ace/ace.js"></script>
+    	<script>
+        	var editor = ace.edit("editor");
+        	editor.setTheme("ace/theme/solarized_dark");
+        	var mode = window.location.href
+        	mode = mode.split("?")[1].toLowerCase();
+        	editor.getSession().setMode("ace/mode/" + mode);
+        </script>
 	</body>
 </html>
-<script>
-	var editor = ace.edit("editor");
-	editor.setTheme("ace/theme/solarized_dark");
-	var mode = window.location.href
-	mode = mode.split("?")[1].toLowerCase();
-	editor.getSession().setMode("ace/mode/" + mode);
-</script>

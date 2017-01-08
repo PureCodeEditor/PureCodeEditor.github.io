@@ -1,0 +1,20 @@
+:root{
+	--default:#93A1A1;
+	--arg:#dc322f;
+	--normal:#b58900;
+	--keyword:#859900;
+	--string:#2aa198;
+	--function:#268bd2;
+	--comment:#657B83;
+	
+	--background_1:#002B36;
+	--background_2:#01313f;
+	--background_3:#33555E;
+	--fold:#0cd;
+	
+	--loader:#098;
+	--dom:#0cd;
+	--doc:#FFF;
+	--banner:#045;
+	--ftab:#067;
+}

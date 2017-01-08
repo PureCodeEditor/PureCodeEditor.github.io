@@ -30,9 +30,14 @@ String.prototype.toProperCase = function() {return this.charAt(0).toUpperCase() 
 var loop = setInterval(function(){
 	
 },20)
+setTheme("solarized_dark")
+function setTheme(theme){
+	$("#pc-theme").remove();
+	$("head").append('<link rel="stylesheet" id="pc-theme" href="theme/' + theme + '.css"/>')
+}
 
 var editor = ace.edit("editor");
-editor.setTheme("ace/theme/solarized_dark");
+editor.setTheme("ace/theme/purecode");
 editor.getSession().setMode("ace/mode/txt");
 editor.setOptions({
 	showIndentGuides: true
@@ -129,6 +134,7 @@ $(".floating_action.restore").click(function(){
 			tab.create(dt, localStorage.getItem("fileContent_" + dt.toLowerCase()), eval("language." + dt.split(".")[dt.split(".").length-1]))
 		}
 	}
+	$(this).animateRotate(-360, 350)
 });
 function load(t,cb){
 	$(".mk-spinner-ripple").fadeIn(500).delay(t - 1000).fadeOut(500,cb);
@@ -162,12 +168,15 @@ $(".floating_action.github").click(function(){
 });
 $(".floating_action.open").click(function(){
 	$("#mfile").click();
+	$(this).effect("shake", { direction: "up", times: 4, distance: 10}, 500 )
 });
 $(".floating_action.undo").click(function(){
-	document.execCommand("undo")
+	document.execCommand("undo");
+	$(this).animateRotate(-360, 250);
 });
 $(".floating_action.redo").click(function(){
 	document.execCommand("redo")
+	$(this).animateRotate(360, 250);
 });
 $(".floating_action.new").click(function(){
 	var emdt = prompt("Create New File");
@@ -179,8 +188,34 @@ $(".floating_action.new").click(function(){
 		}
 		tab.create(emdt, "", type)
 	}
+	$(this).animateRotate(90, 200)
 });
 $(".floating_action.download").click(function(){
 	var ct = localStorage.getItem("currentTab");
 	download(editor.getValue(), ct);
+	$(this).effect("shake", { direction: "up", times: 4, distance: 10}, 500 )
 });
+
+$(":checkbox").on("change", function() {
+	$(':checkbox').not(this).prop('checked', this.checked);
+});
+
+	$(":checkbox").on("change", function(){
+		var checkboxValues = {};
+		$(":checkbox").each(function(){
+		checkboxValues[this.id] = this.checked;
+	});
+	$.cookie('checkboxValues', checkboxValues, { expires: 7, path: '/' })
+});
+
+function repopulateCheckboxes(){
+	var checkboxValues = $.cookie('checkboxValues');
+	if(checkboxValues){
+		Object.keys(checkboxValues).forEach(function(element) {
+			var checked = checkboxValues[element];
+            $("#" + element).prop('checked', checked);
+		});
+	}
+}
+$.cookie.json = true;
+repopulateCheckboxes();

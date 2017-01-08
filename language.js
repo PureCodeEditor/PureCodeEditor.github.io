@@ -83,7 +83,6 @@ var language = {
     "kml": "XML",
     "svg": "XML",
     "xsml": "XML",
-    "xsml": "XML",
     "wsdl": "XML",
     "xlf": "XML",
     "xliff": "XML",
@@ -95,7 +94,7 @@ var language = {
     "plist": "XML",
     "yml": "YAML",
     "yaml": "YAML"
-}
+};
 var lancolor = {
     "actionscript": {
         "color": "#882b0f", 
@@ -224,4 +223,4 @@ var lancolor = {
         "color": "#118f9e", 
         "url": "https://github.com/trending?l=zephir"
     }
-}
+};
