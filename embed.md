@@ -9,6 +9,6 @@ The easiest way we came up with was was using the iframe and a URL.
 [Demo Here](https://purecodeeditor.github.io/embed)
 If you check out the demo you will notice that its only a text editor, but thats ok.
 We also added a very convenient way to change the language in the iframe in the URL.
-Just add a `?LNAGUAGE` to the end of the URL. E.g. https://purecodeeditor.github.io/embed?javascript. 
+Just add a `?LANGUAGE` to the end of the URL. E.g. https://purecodeeditor.github.io/embed?javascript. 
 Its not case sensitive, phew.
 [Javascript Demo Here](https://purecodeeditor.github.io/embed?javascript)
