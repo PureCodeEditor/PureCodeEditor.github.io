@@ -26,12 +26,11 @@ String.prototype.toProperCase = function() {return this.charAt(0).toUpperCase() 
 		######						########################
 		######						########################
 */
-localStorage.setItem("pc-theme", "solarized_dark")
 var loop = setInterval(function(){
 	
 },20)
 
-if(!localStorage.getItem("pc-theme")) localStorage.setItem("pc-theme", "solarized_dark");
+if(!localStorage.getItem("pc-theme")) localStorage.setItem("pc-theme", "ace");
 setTheme(localStorage.getItem("pc-theme"))
 
 var editor = ace.edit("editor");
@@ -199,6 +198,23 @@ $(".floating_action.download").click(function(){
 	download(editor.getValue(), ct);
 	$(this).effect("shake", { direction: "up", times: 4, distance: 10}, 500 )
 });
+
+$(".floating_action.theme").click(function(){
+	$("div.banner.left").animate({
+		left: "0px"
+	}, 250)
+})
+$("div.banner.left").mouseleave(function(){
+	$("div.banner.left").animate({
+		left: "-250px"
+	}, 250)
+})
+$("h4.themesel").click(function(){
+	var theme = $(this).text().toLowerCase().replace(" ", "_")
+	setTheme(theme);
+})
+
+
 
 
 
