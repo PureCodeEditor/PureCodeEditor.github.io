@@ -1,3 +1,9 @@
+## Version v1.0.2.8. Is Out [Check It Out!](https://purecodeeditor.github.io)
+### Themes! Themes! and more Themes! Now with over 20 Themes!  Pick from your favoite
+[More Changes](https://github.com/PureCodeEditor/PureCodeEditor.github.io/compare/8b92661a591a21b747297e0a8e986d2094a93a5c...master)
+
+<hr>
+
 ## Version v1.0.1.8. Is Out [Check It Out!](https://purecodeeditor.github.io)
 ### Adds some icons, boosts overall performance, and squashes a few bugs.
 [More Changes](https://github.com/PureCodeEditor/PureCodeEditor.github.io/compare/8b92661a591a21b747297e0a8e986d2094a93a5c...master)

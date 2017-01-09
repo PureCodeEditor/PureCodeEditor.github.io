@@ -2,6 +2,15 @@
 	user-select:none;
     outline:none;
 }
+::-webkit-scrollbar {
+	width:18px;
+}
+::-webkit-scrollbar-track {
+	background-color:rgba(0,0,0,0.1)
+}
+::-webkit-scrollbar-thumb {
+	background-color:rgba(0,0,0,0.2)
+}
 body {
 	overflow:hidden;
 	background-color:#FFF;
@@ -219,6 +228,7 @@ div.banner.left {
 	height:100%;
 	width:250px;
 	z-index:100000000000000000000000000000000000000000000000000000000000000000;
+	overflow-y:scroll;
 }
 h4.themesel {
 	font-family:roboto;
