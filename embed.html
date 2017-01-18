@@ -18,9 +18,12 @@
     	<script>
         	var editor = ace.edit("editor");
         	editor.setTheme("ace/theme/solarized_dark");
-        	var mode = window.location.href
-        	mode = mode.split("?")[1].toLowerCase();
+        	var exi = window.location.href
+        	var mode = exi.split("?")[1].toLowerCase();
+		
+		var val = exi.split("|-|")[1]
         	editor.getSession().setMode("ace/mode/" + mode);
+		editor.setValue(val);
         </script>
 	</body>
 </html>
