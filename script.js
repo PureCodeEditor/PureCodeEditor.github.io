@@ -213,7 +213,31 @@ $("h4.themesel").click(function(){
 	var theme = $(this).text().toLowerCase().replace(" ", "_")
 	setTheme(theme);
 })
-
+$(".floating_action.run").click(function(){
+	var html = prompt("Whats your HTML Tab name?");
+	var js = prompt("What are your JavaScript Tabs. Seperate them with a comma.");
+	var css = prompt("What are your CSS Tabs. Seperate them with a comma.");
+	
+	var javascript;
+	
+	for(i = 0; i > js.split(",").length; i++){
+	    javascript += "  " + localStorage.getItem("fileContent_" + js.split(",")[i]);
+	}
+	
+	var cssp;
+	
+	for(i = 0; i > css.split(",").length; i++){
+	    cssp += "  " + localStorage.getItem("fileContent_" + css.split(",")[i]);
+	}
+	
+	html = localStorage("fileContent_" + html);
+	
+	html += "<script>" + javascript + "</script><style>" + cssp + "</style>";
+	
+	var t = window.open();
+	t.document.write(html);
+	
+})
 
 
 
