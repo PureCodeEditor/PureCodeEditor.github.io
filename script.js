@@ -234,8 +234,7 @@ $(".floating_action.run").click(function(){
 	
 	html += "<script>" + javascript + "</script><style>" + cssp + "</style>";
 	
-	var t = window.open();
-	t.document.write(html);
+	alert(html);
 	
 })
 
