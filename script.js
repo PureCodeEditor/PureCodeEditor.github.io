@@ -74,7 +74,7 @@ var tab = {
 	create: function(name, content, mode){
 		var color = eval("lancolor." + mode.toLowerCase() + ".color");
 		localStorage.setItem("fileContent_" + name.toLowerCase(), "");
-		$("div.filestab").append("<div class='file' style='border-color:" + color + ";' onclick='tabsclick(this)'>"+name+"<span onclick='tab.close(this)' class='file close'>&#x2716;</span></div>");
+		$("div.filestab").append("<div class='file' id='" + name + "' style='border-color:" + color + ";'oncontextmenu='filecm(this)' onclick='tabsclick(this)'>"+name+"<span onclick='tab.close(this)' class='file close'>&#x2716;</span></div>");
 		localStorage.setItem("fileContent_" + name.toLowerCase(), content);
 		localStorage.setItem("currentTab", name);
 		editor.getSession().setMode("ace/mode/" + mode.toLowerCase());
@@ -109,6 +109,7 @@ var tab = {
 		$("select.language_select").val(type.toLowerCase());
 	}
 }
+
 editor.on('change', function(){
 	tab.update(editor.getValue());
 })
@@ -123,12 +124,72 @@ function tabsclick(p){
 	tab.switchTo(dm)
 }
 
+function filecm(p){
+	$(".filecm").remove();
+	var e = window.event;
+	e.preventDefault();
+	
+	p = $(p);
+	i = p.html().split("<span")[0]
 
+	
+	p.parent().after("<div class='filecm'>\
+		<div class='option' onclick='tab.close();'>Clear</div>\
+		<div class='option' onclick='location.reload()'>New Space</div>\
+		<div class='option' onclick='copy(\"" + i + "\")'>Copy Filename</div>\
+		<div class='option' onclick=''></div>\
+		<div class='option' onclick=''></div>\
+	</div>");
+	
+	
+	
+	$(".filecm").mouseleave(function(){
+		$(this).animate({
+			height: "0",
+			opacity: "0"
+		}, 200, function(){
+			$(this).remove();
+		})
+	}).attr("id", i)
+	
+	var l = e.pageX - 64
+	if(l < 2) l = 2;
+	var bgc = $(".banner").css("background-color");
+	$(".filecm").css({
+		left:l,
+		top: "80px",
+		height: "0px"
+	}).animate({
+		height: "300px"
+	}, 200).children(".title").css({
+		color: bgc
+	})
+}
+function copy(text) {
+  var textArea = document.createElement("textarea");
 
-
-
-
-
+  textArea.style.position = 'fixed';
+  textArea.style.top = 0;
+  textArea.style.left = 0;
+  textArea.style.width = '2em';
+  textArea.style.height = '2em';
+  textArea.style.padding = 0;
+  textArea.style.border = 'none';
+  textArea.style.outline = 'none';
+  textArea.style.boxShadow = 'none';
+  textArea.style.background = 'transparent';
+  textArea.value = text;
+  document.body.appendChild(textArea);
+  textArea.select();
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Copying text command was ' + msg);
+  } catch (err) {
+    console.log('Oops, unable to copy');
+  }
+  document.body.removeChild(textArea);
+}
 
 $(".floating_action.restore").click(function(){
 	var dt = window.prompt("Enter a file name to restore (e.g. index.html)");
@@ -214,58 +275,15 @@ $("h4.themesel").click(function(){
 	setTheme(theme);
 })
 $(".floating_action.run").click(function(){
-	var html = prompt("Whats your HTML Tab name?");
-	var js = prompt("What are your JavaScript Tabs. Seperate them with a comma.");
-	var css = prompt("What are your CSS Tabs. Seperate them with a comma.");
+	var html = prompt("Name your HTML tab you want to run.")
+	var js = prompt("Name your Javascript tab you want to run.")
+	var css = prompt("Name your CSS tab you want to run.")
 	
-	var javascript;
-	
-	for(i = 0; i > js.split(",").length; i++){
-	    javascript += "  " + localStorage.getItem("fileContent_" + js.split(",")[i]);
-	}
-	
-	var cssp;
-	
-	for(i = 0; i > css.split(",").length; i++){
-	    cssp += "  " + localStorage.getItem("fileContent_" + css.split(",")[i]);
-	}
-	
-	html = localStorage("fileContent_" + html);
-	
-	html += "<script>" + javascript + "</script><style>" + cssp + "</style>";
-	
-	alert(html);
+	var js = localStorage.getItem("fileContent_" + js)
+	var html = localStorage.getItem("fileContent_" + html)
+	var css = localStorage.getItem("fileContent_" + css);
+		
+	var w = window.open();
+	w.document.write("<html>" + html + "<script>" + js + "</script><style>" + css + "</style></html>")
 	
 })
-
-
-
-
-
-
-
-
-
-$(":checkbox").on("change", function() {
-	$(':checkbox').not(this).prop('checked', this.checked);
-});
-
-	$(":checkbox").on("change", function(){
-		var checkboxValues = {};
-		$(":checkbox").each(function(){
-		checkboxValues[this.id] = this.checked;
-	});
-	$.cookie('checkboxValues', checkboxValues, { expires: 9999, path: '/' })
-});
-
-function repopulateCheckboxes(){
-	var checkboxValues = $.cookie('checkboxValues');
-	if(checkboxValues){
-		Object.keys(checkboxValues).forEach(function(element) {
-			var checked = checkboxValues[element];
-            $("#" + element).prop('checked', checked);
-		});
-	}
-}
-$.cookie.json = true;
-repopulateCheckboxes();

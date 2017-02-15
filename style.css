@@ -234,3 +234,18 @@ h4.themesel {
 	font-family:roboto;
 	font-size:22px;
 }
+div.filecm {
+	position:absolute;
+	width:208px;
+	background-color:#EFEFEF;
+	z-index:10000000000000000000000000000000000000000000000000000000000000000;
+}
+div.filecm div.option {
+	padding:18px;
+	font-size:18px;
+	font-family:roboto;
+}
+div.filecm div.option:hover {
+	background-color:#DDD;
+	cursor:pointer;
+}
