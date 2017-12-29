@@ -6,14 +6,14 @@
   "icon":"https://raw.githubusercontent.com/PureCodeEditor/PureCodeEditor.github.io/master/img/icon.png",
   "permissions":
     [
-      "body-sensor",
+      "body_sensor",
       "calendar",
       "camera",
       "contacts",
       "devices",
-      "internet-access",
-      "local-fs",
-      "local-network",
+      "internet_access",
+      "local_fs",
+      "local_network",
       "location",
       "microphone",
       "phone",
