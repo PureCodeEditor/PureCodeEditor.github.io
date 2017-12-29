@@ -10,13 +10,13 @@
       "calendar",
       "camera",
       "contacts",
-      "devices",
       "internet_access",
       "local_fs",
       "local_network",
       "location",
       "microphone",
       "phone",
-      "sms"
+      "sms",
+      "usb"
     ]
 }
