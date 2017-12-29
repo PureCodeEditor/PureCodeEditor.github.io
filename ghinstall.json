@@ -1,0 +1,22 @@
+{
+  "install_dir":"C:\Program Files (x86)\PureCode",
+  "terms":"These are the terms",
+  "author":"Josh Merlino",
+  "version":"1.0.0",
+  "icon":"https://raw.githubusercontent.com/PureCodeEditor/PureCodeEditor.github.io/master/img/icon.png",
+  "permissions":
+    [
+      "body-sensor",
+      "calendar",
+      "camera",
+      "contacts",
+      "external-fs",
+      "internet-access",
+      "local-fs",
+      "local-network",
+      "location",
+      "microphone",
+      "phone",
+      "sms"
+    ]
+}
